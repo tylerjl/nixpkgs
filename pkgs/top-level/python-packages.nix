@@ -4300,11 +4300,11 @@ in modules // {
   };
 
   cffi = if isPyPy then null else buildPythonPackage rec {
-    name = "cffi-1.5.2";
+    name = "cffi-1.6.0";
 
     src = pkgs.fetchurl {
       url = "mirror://pypi/c/cffi/${name}.tar.gz";
-      sha256 = "1p91p1n8n46y0k3q7ddgxxjnfh08rjqsjh7zbjxzfiifhycxx6ys";
+      sha256 = "1nr7z74v2p2zjb07p05klfzyr7shdh5dsyk5ah70lb1ny975rxx7";
     };
 
     propagatedBuildInputs = with self; [ pkgs.libffi pycparser ];
