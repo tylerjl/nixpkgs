@@ -46,6 +46,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     qt6.qtbase
     qt6.qtdeclarative
+    qt6.qtgraphs
     qt6.qtwayland
     qt6.qtsvg
     cli11
