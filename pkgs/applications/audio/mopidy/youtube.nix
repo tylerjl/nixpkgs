@@ -9,14 +9,14 @@
 
 pythonPackages.buildPythonApplication (finalAttrs: {
   pname = "mopidy-youtube";
-  version = "3.7";
+  version = "4.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "natumbri";
     repo = "mopidy-youtube";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-iFt7r8Ljymc+grNJiOClTHkZOeo7AcYpcNc8tLMPROk=";
+    hash = "sha256-zNK44Nh60jQKsMlgofU8UJp8DkswusLKjNUFSWRdKME=";
   };
 
   postPatch = ''
@@ -52,6 +52,8 @@ pythonPackages.buildPythonApplication (finalAttrs: {
   disabledTests = [
     # Test requires a YouTube API key
     "test_get_default_config"
+    # Upstream test is broken
+    "test_get_config_schema"
   ];
 
   disabledTestPaths = [
@@ -67,6 +69,8 @@ pythonPackages.buildPythonApplication (finalAttrs: {
     description = "Mopidy extension for playing music from YouTube";
     homepage = "https://github.com/natumbri/mopidy-youtube";
     license = lib.licenses.asl20;
-    maintainers = [ ];
+    maintainers = with lib.maintainers ; [
+      tylerjl
+    ];
   };
 })
